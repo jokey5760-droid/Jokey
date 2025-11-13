@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jokey | Web Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="dark-mode">
+  <!-- ===== HEADER ===== -->
+   
+  <header >
+    <div class="logo">Jokey</div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about" >About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="mode-toggle" style="color: GREY;">🌙</button></li>
+      </ul>
+    </nav>
+   
+  </header>
+
+  <!-- ===== MAIN SECTION ===== -->
+  <section class="home" id="home">
+    <div class="home-text">
+      <h3>Hello, I'm</h3>
+      <h1>Jokey</h1>
+      <h3>And I'm a <span id="text" style="font-family: agency fb; font-size: 35px;"></span></h3>
+      <p>Hi! I'm Jokey, a passionate web developer who loves turning ideas into
+        clean, functional, and aesthetic web experiences using HTML, CSS, JS, and PHP.</p>
+
+      <div class="socials-icon">
+        <a href="#"><i class="fab fa-facebook"></i><img src="fb.png"></a>
+        <a href="#"><i class="fab fa-twitter"></i><img src="x.png"></a>
+        <a href="#"><i class="fab fa-github"></i><img src="git2.png"></a>
+        <a href="#"><i class="fab fa-instagram"></i><img src="insta.jpeg"></a>
+      </div>
+
+      <a href="#" class="btn" >Download CV</a>
+    </div>
+
+    <div class="home-img">
+      <img src="me3.jpg" alt="Profile Image">
+    </div>
+  </section>
+  <section id="about" class="home">
+    <div >
+            <h2> about me</h2> 
+            <div class="about-div">
+              <div style="display: flex; gap: 60px;">
+              <div class="home-img">
+      <img src="me.png" alt="Profile Image"  >
+               </div>
+                
+            <div class="about-txt">
+                <p>I am a self taught web developer, app developer who loves building clean,
+                  responsive and attractive websites.<br>
+                  I am a specialized as a fullstack developer using multiple languages. <br>
+                  I'm an expert in languagessuch as html, css, javascript, react.js, php,<br> mongo db, python, and c++.
+                </p>
+                <p>MY goal is to create websites that not only look great but
+                     alsodeliver great user experience </p>
+                     
+               </div>
+               </div>
+               
+              </section>
+               <section id="projects">
+                <h2>Some of the  Projects I've done so far</h2>
+            <div class="container">
+                
+                <div >
+                    <div class="home-imgg">
+                    <img src="tour.jpeg" class="img-pr" alt="project 1">
+                    <div>
+                        <h4>Tourism website</h4>
+                        <p>A simple website showcasting <br>tourist attractions and tour <br>
+                        guiding</p>
+                        <a href="#" class="btn">View project</a>
+                    </div>
+                    </div>
+                </div>
+                   <div>
+                    <div class="home-imgg">
+                    <img src="shop.png" class="img-pr" alt="project 2">
+                    <div>
+                        <h4>E - Commerce website
+                        </h4>
+                        <p>A small online shop with product listing, purchasing and <br>cart functiomality</p>
+                        <a href="#" class="btn">View project</a>
+                  </div>
+                 </div>
+                </div>   
+                    <div class="column-pr">
+                    <div class="home-imgg">
+                    <img src="shule.jpeg" class="img-pr" alt="project 3">
+                    <div >
+                        <h4>School website</h4>
+                        <p>a site for a local School with student results and <br>event updates</p>
+                        <a href="#" class="btn">View project</a>
+                    </div>
+                 </div>
+              </div>
+            </div>
+        </section> 
+
+        <section id="contact" class="home">
+          <div class="container-contact">
+            <h2>Contact me</h2>
+            <div>
+                <div class="form">
+                    <form>
+                        <input type="text" class="form-name"
+                         placeholder="write your name">
+                         <input type="email" class="form-email" placeholder="your email">
+                         <textarea class="form-txt" >write your message here
+                         </textarea>
+                        <a href="jokey5760@gmail.com" ><button type="submit" class="btn">submit</button></a>
+                        
+                    </form>
+                </div>
+
+            </div>
+            </div>
+        </section>
+       <script>
+        
+const texts = [
+      "FRON-END WEB DEVELOPER ",
+      "BACK-END WEB DEVELOPER",
+      "WEB DESIGNER",
+      "APP DEVELOPER",
+      "PROGRAMMER"
+    ];
+
+    const speed = 90;       // typing speed
+    const eraseSpeed = 80;   // deleting speed
+    const delay = 1300;      // delay before deleting
+    let i = 0;               // current text index
+    let j = 0;               // current character index
+    let isDeleting = false;
+
+    const textElement = document.getElementById("text");
+
+    function typeWriter() {
+      const currentText = texts[i];
+
+      if (!isDeleting && j < currentText.length) {
+        textElement.textContent += currentText.charAt(j);
+        j++;
+        setTimeout(typeWriter, speed);
+      } else if (isDeleting && j > 0) {
+        textElement.textContent = currentText.substring(0, j - 1);
+        j--;
+        setTimeout(typeWriter, eraseSpeed);
+      } else {
+        if (!isDeleting && j === currentText.length) {
+          isDeleting = true;
+          setTimeout(typeWriter, delay);
+        } else if (isDeleting && j === 0) {
+          isDeleting = false;
+          i = (i + 1) % texts.length;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    }
+
+    typeWriter();
+
+       </script> 
+  <script>
+   const toggleBtn = document.getElementById('mode-toggle');
+const body = document.body;
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+
+  // Switch icon
+  if(body.classList.contains('dark-mode')){
+    toggleBtn.textContent = '☀️';
+  } else {
+    toggleBtn.textContent = '🌙';
+  }
+});
+  </script>
+
+        <!--footer-->
+        <footer>
+            <p>@ copyright 2025 JOKEY | built with html, css, bootstsrap and javascript</p>
+        </footer> 
+</body>
+</html>
